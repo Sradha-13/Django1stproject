@@ -1,0 +1,15 @@
+{% load static %}
+{% extends "base.html" %}
+{% block content %}
+        {% if request.user.is_authenticated %}
+            Hello {{ request.user.username }}
+        {% else %}
+            Hello anonymous user
+        {% endif %}
+        <a href="/create"> Create a Todo</a>
+        <ul>
+            {% for Todo in todo_list %}
+                <li><a href="/{{ Todo.id }}"> {{ Todo.name }} </a> and its due {{ Todo.due_date }}</li>
+            {% endfor %}
+{% end block %}
+        

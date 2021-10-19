@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        {% if request.user.is_authenticated %}
+            Hello {{ request.user.username }}
+        {% else %}
+            Hello anonymous user
+        {% endif %}</body><br>
+            The todo name is:{{ Todo.name }}</br>
+            The due_date is:{{ Todo.due_date }}<br>
+            <a href="/{{ Todo.id }}/update/">Update this Todo</a><br>
+            <a href="/{{ Todo.id }}/delete/">Delete this Todo</a>
+    </body>
+</html>
